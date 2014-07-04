@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import com.squareup.timessquare.MonthCellDescriptor.RangeState;
@@ -295,7 +296,7 @@ public class CalendarPickerView extends ListView {
     if (getAdapter() == null) {
       setAdapter(adapter);
     }
-    adapter.notifyDataSetChanged();
+    notifyDataSetChanged();
   }
 
   private void scrollToSelectedMonth(final int selectedIndex) {
@@ -598,11 +599,17 @@ public class CalendarPickerView extends ListView {
       }
     }
 
-    adapter.notifyDataSetChanged();
-    setAdapter(adapter);
+    notifyDataSetChanged();
   }
 
-  /** Hold a cell with a month-index. */
+  private void notifyDataSetChanged() {
+    ListAdapter listAdapter = getAdapter();
+    if (listAdapter instanceof BaseAdapter) {
+      ((BaseAdapter)listAdapter).notifyDataSetChanged();
+    }
+  }
+
+    /** Hold a cell with a month-index. */
   private static class MonthCellWithMonthIndex {
     public MonthCellDescriptor cell;
     public int monthIndex;
@@ -634,10 +641,10 @@ public class CalendarPickerView extends ListView {
     return null;
   }
 
-  private class MonthAdapter extends BaseAdapter {
+  public class MonthAdapter extends BaseAdapter {
     private final LayoutInflater inflater;
 
-    private MonthAdapter() {
+    public MonthAdapter() {
       inflater = LayoutInflater.from(getContext());
     }
 
