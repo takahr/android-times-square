@@ -60,29 +60,29 @@ public class CalendarPickerView extends ListView {
   }
 
   private final CalendarPickerView.MonthAdapter adapter;
-  private final List<List<List<MonthCellDescriptor>>> cells =
+  protected final List<List<List<MonthCellDescriptor>>> cells =
       new ArrayList<List<List<MonthCellDescriptor>>>();
-  final MonthView.Listener listener = new CellClickedListener();
-  final List<MonthDescriptor> months = new ArrayList<MonthDescriptor>();
+  protected final MonthView.Listener listener = new CellClickedListener();
+  protected final List<MonthDescriptor> months = new ArrayList<MonthDescriptor>();
   final List<MonthCellDescriptor> selectedCells = new ArrayList<MonthCellDescriptor>();
   final List<MonthCellDescriptor> highlightedCells = new ArrayList<MonthCellDescriptor>();
   final List<Calendar> selectedCals = new ArrayList<Calendar>();
   final List<Calendar> highlightedCals = new ArrayList<Calendar>();
   private Locale locale;
   private DateFormat monthNameFormat;
-  private DateFormat weekdayNameFormat;
+  protected DateFormat weekdayNameFormat;
   private DateFormat fullDateFormat;
   private Calendar minCal;
   private Calendar maxCal;
   private Calendar monthCounter;
-  private boolean displayOnly;
+  protected boolean displayOnly;
   SelectionMode selectionMode;
-  Calendar today;
-  private int dividerColor;
-  private int dayBackgroundResId;
-  private int dayTextColorResId;
-  private int titleTextColor;
-  private int headerTextColor;
+  protected Calendar today;
+  protected int dividerColor;
+  protected int dayBackgroundResId;
+  protected int dayTextColorResId;
+  protected int titleTextColor;
+  protected int headerTextColor;
 
   private OnDateSelectedListener dateListener;
   private DateSelectableFilter dateConfiguredListener;

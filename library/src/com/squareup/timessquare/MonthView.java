@@ -13,8 +13,8 @@ import java.util.List;
 
 public class MonthView extends LinearLayout {
   TextView title;
-  CalendarGridView grid;
-  private Listener listener;
+  protected CalendarGridView grid;
+  protected Listener listener;
 
   public static MonthView create(ViewGroup parent, LayoutInflater inflater,
       DateFormat weekdayNameFormat, Listener listener, Calendar today, int dividerColor,
