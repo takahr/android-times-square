@@ -719,12 +719,16 @@ public class CalendarPickerView extends ListView {
         }
 
         weekCells.add(
-            new MonthCellDescriptor(date, isCurrentMonth, isSelectable, isSelected, isToday,
-                isHighlighted, value, rangeState));
+            createMonthCellDescriptor(date, isCurrentMonth, isSelectable, isSelected, isToday,
+                    isHighlighted, value, rangeState));
         cal.add(DATE, 1);
       }
     }
     return cells;
+  }
+
+  protected MonthCellDescriptor createMonthCellDescriptor(Date date, boolean isCurrentMonth, boolean isSelectable, boolean isSelected, boolean isToday, boolean isHighlighted, int value, RangeState rangeState) {
+    return new MonthCellDescriptor(date, isCurrentMonth, isSelectable, isSelected, isToday, isHighlighted, value, rangeState);
   }
 
   private static boolean containsDate(List<Calendar> selectedCals, Calendar cal) {

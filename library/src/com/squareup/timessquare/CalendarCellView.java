@@ -95,4 +95,19 @@ public class CalendarCellView extends TextView {
 
     return drawableState;
   }
+
+  public void updateState(MonthCellDescriptor cell) {
+    setText(Integer.toString(cell.getValue()));
+    setEnabled(cell.isCurrentMonth());
+
+    setSelectable(cell.isSelectable());
+    setSelected(cell.isSelected());
+    setCurrentMonth(cell.isCurrentMonth());
+    setToday(cell.isToday());
+    setRangeState(cell.getRangeState());
+    setHighlighted(cell.isHighlighted());
+    setTag(cell);
+
+    refreshDrawableState();
+  }
 }

@@ -70,18 +70,8 @@ public class MonthView extends LinearLayout {
         for (int c = 0; c < week.size(); c++) {
           MonthCellDescriptor cell = week.get(c);
           CalendarCellView cellView = (CalendarCellView) weekRow.getChildAt(c);
-
-          cellView.setText(Integer.toString(cell.getValue()));
-          cellView.setEnabled(cell.isCurrentMonth());
           cellView.setClickable(!displayOnly);
-
-          cellView.setSelectable(cell.isSelectable());
-          cellView.setSelected(cell.isSelected());
-          cellView.setCurrentMonth(cell.isCurrentMonth());
-          cellView.setToday(cell.isToday());
-          cellView.setRangeState(cell.getRangeState());
-          cellView.setHighlighted(cell.isHighlighted());
-          cellView.setTag(cell);
+          cellView.updateState(cell);
         }
       } else {
         weekRow.setVisibility(GONE);

@@ -9,7 +9,7 @@
     <attr name="headerTextColor" format="color"/>
   </declare-styleable>
 
-  <declare-styleable name="calendar_cell">
+  <declare-styleable name="CalenderCellView">
     <attr name="state_selectable" format="boolean" />
     <attr name="state_current_month" format="boolean" />
     <attr name="state_today" format="boolean" />
