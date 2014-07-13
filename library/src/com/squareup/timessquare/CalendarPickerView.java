@@ -292,7 +292,7 @@ public class CalendarPickerView extends ListView {
     }
   }
 
-  private void validateAndUpdate() {
+  protected void validateAndUpdate() {
     if (getAdapter() == null) {
       setAdapter(adapter);
     }
@@ -610,7 +610,7 @@ public class CalendarPickerView extends ListView {
   }
 
     /** Hold a cell with a month-index. */
-  private static class MonthCellWithMonthIndex {
+  protected static class MonthCellWithMonthIndex {
     public MonthCellDescriptor cell;
     public int monthIndex;
 
@@ -621,7 +621,7 @@ public class CalendarPickerView extends ListView {
   }
 
   /** Return cell and month-index (for scrolling) for a given Date. */
-  private MonthCellWithMonthIndex getMonthCellWithIndexByDate(Date date) {
+  protected MonthCellWithMonthIndex getMonthCellWithIndexByDate(Date date) {
     int index = 0;
     Calendar searchCal = Calendar.getInstance(locale);
     searchCal.setTime(date);
